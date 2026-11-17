@@ -96,7 +96,7 @@
     }
     .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -.02em; }
     .brand-mark { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 10px; color: #fff; background: var(--acid); font-size: 14px; box-shadow: 0 8px 20px rgba(47,111,98,.2); }
-    .nav-links { display: flex; align-items: center; gap: 21px; color: var(--muted); font-size: 14px; font-weight: 650; }
+    .nav-links { display: flex; align-items: center; gap: 18px; color: var(--muted); font-size: 14px; font-weight: 650; }
     .nav-links a { position: relative; transition: color .2s ease; }
     .nav-links a:not(.nav-cta)::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -8px; height: 1px; background: var(--acid); transition: right .25s ease; }
     .nav-links a:hover, .nav-links a.active { color: var(--ink); }
@@ -109,7 +109,8 @@
     h1 { margin: 20px 0 24px; font-size: clamp(53px, 7.2vw, 96px); line-height: .92; letter-spacing: -.065em; max-width: 900px; }
     h1 span { display: block; color: var(--acid); -webkit-text-stroke: 0; }
     .discipline-title { max-width: 780px; font-size: clamp(44px, 5.8vw, 76px); line-height: 1.02; letter-spacing: -.055em; }
-    .hero-copy > p { max-width: 650px; color: var(--muted); font-size: clamp(17px, 2vw, 21px); }
+    .hero-copy > p { max-width: 690px; color: var(--muted); font-size: clamp(17px, 2vw, 21px); }
+    .hero-copy > p + p { margin-top: 18px; }
     .hero-current-role { font-weight: 850; }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
     .button { display: inline-flex; align-items: center; gap: 12px; padding: 14px 20px; border-radius: 13px; font-weight: 800; transition: transform .2s ease, border-color .2s ease, background .2s ease; }
@@ -428,8 +429,8 @@
     .hero-focus { max-width: 760px; }
     .hero-focus span { color: var(--acid); }
 
-    .outcome-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 22px; }
-    .outcome-lead { min-height: 410px; padding: 42px; position: relative; overflow: hidden; }
+    .outcome-grid { display: grid; grid-template-columns: 1fr; gap: 22px; }
+    .outcome-lead { min-height: 330px; padding: 42px; position: relative; overflow: hidden; }
     .outcome-lead::after { content: "PROCESS"; position: absolute; right: -18px; bottom: -44px; color: rgba(47,111,98,.055); font-size: clamp(72px, 11vw, 150px); font-weight: 900; letter-spacing: -.08em; }
     .outcome-lead h2 { max-width: 700px; }
     .outcome-lead p { max-width: 650px; color: var(--muted); font-size: 18px; }
@@ -438,6 +439,40 @@
     .outcome-card span { color: var(--acid); font: 850 11px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .12em; }
     .outcome-card h3 { margin: 28px 0 8px; font-size: 23px; line-height: 1.08; letter-spacing: -.035em; }
     .outcome-card p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .artifact-feature {
+      padding: 44px;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 92% 8%, rgba(197,138,69,.13), transparent 25%),
+        linear-gradient(145deg, rgba(255,255,255,.96), rgba(240,247,244,.92));
+    }
+    .artifact-feature::after {
+      content: "ARTIFACT";
+      position: absolute;
+      right: -15px;
+      top: -52px;
+      color: rgba(47,111,98,.045);
+      font-size: clamp(90px, 14vw, 170px);
+      font-weight: 900;
+      letter-spacing: -.08em;
+      pointer-events: none;
+    }
+    .artifact-header { position: relative; z-index: 1; max-width: 890px; margin-bottom: 30px; }
+    .artifact-header h3 { margin: 9px 0 0; font-size: clamp(34px, 5vw, 58px); line-height: 1; letter-spacing: -.05em; }
+    .artifact-media { display: grid; grid-template-columns: 1.35fr .8fr .8fr; gap: 12px; margin-bottom: 30px; }
+    .artifact-media figure { min-height: 250px; margin: 0; position: relative; overflow: hidden; border-radius: 18px; background: #dfe9e5; }
+    .artifact-media img { width: 100%; height: 100%; object-fit: cover; }
+    .artifact-media figure::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(16,43,36,.42), transparent 45%); }
+    .artifact-media figcaption { position: absolute; left: 18px; right: 18px; bottom: 14px; z-index: 1; color: #fff; font-size: 12px; font-weight: 780; letter-spacing: .02em; }
+    .artifact-story { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .artifact-phase { padding: 25px; border: 1px solid rgba(35,76,66,.09); border-radius: 17px; background: rgba(255,255,255,.68); }
+    .artifact-phase > span { color: var(--acid); font: 850 11px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .12em; }
+    .artifact-phase h4 { margin: 20px 0 11px; font-size: 22px; line-height: 1.08; letter-spacing: -.03em; }
+    .artifact-phase p { margin: 0; color: var(--muted); font-size: 14px; }
+    .artifact-phase strong { color: #355c53; }
+    .artifact-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
 
     .domain-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 22px; align-items: stretch; }
     .domain-intro { padding: 38px; }
@@ -492,6 +527,12 @@
     .board-column li { margin: 12px 0; padding-left: 4px; }
     .board-column li::marker { color: var(--acid); }
 
+    .resume-feature { display: flex; align-items: center; justify-content: space-between; gap: 34px; margin-top: 22px; padding: 34px 38px; }
+    .resume-feature h3 { margin: 7px 0 5px; font-size: clamp(28px, 4vw, 42px); line-height: 1; letter-spacing: -.04em; }
+    .resume-feature p { max-width: 650px; margin: 0; color: var(--muted); }
+    .resume-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; flex: 0 0 auto; }
+    .resume-actions .button { white-space: nowrap; }
+
     .contact { text-align: center; padding: 95px 25px; background: linear-gradient(135deg, rgba(108,168,155,.13), rgba(229,194,132,.11)); }
     .contact h2 { max-width: 850px; margin-inline: auto; }
     .contact p { color: var(--muted); max-width: 620px; margin: 24px auto 34px; }
@@ -508,7 +549,7 @@
     .reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s ease, transform .8s ease; }
     .reveal.visible { opacity: 1; transform: none; }
 
-    @media (max-width: 1040px) and (min-width: 851px) {
+    @media (max-width: 1140px) and (min-width: 851px) {
       .brand-text { display: none; }
       .nav-links { gap: 14px; font-size: 13px; }
       .nav-cta { padding-inline: 12px; }
@@ -521,6 +562,11 @@
       .about-grid { grid-template-columns: 1fr; }
       .outcome-grid, .domain-layout { grid-template-columns: 1fr; }
       .professional-board, .learning-grid { grid-template-columns: 1fr; }
+      .artifact-story { grid-template-columns: 1fr; }
+      .artifact-media { grid-template-columns: 1.25fr 1fr; }
+      .artifact-media figure:last-child { grid-column: 1 / -1; min-height: 290px; }
+      .resume-feature { align-items: flex-start; flex-direction: column; }
+      .resume-actions { justify-content: flex-start; }
       .experience-grid { grid-template-columns: 1fr; }
       .credentials { position: static; }
       .presentation-list, .competitions-grid { grid-template-columns: 1fr; }
@@ -540,6 +586,12 @@
       .facts { grid-template-columns: 1fr; } .fact { min-height: 150px; }
       .outcome-cards, .literacy-grid { grid-template-columns: 1fr; }
       .outcome-lead, .domain-intro, .output-panel { padding: 29px; }
+      .artifact-feature { padding: 27px; }
+      .artifact-media { grid-template-columns: 1fr; }
+      .artifact-media figure, .artifact-media figure:last-child { grid-column: auto; min-height: 230px; }
+      .resume-feature { padding: 28px; }
+      .resume-actions { width: 100%; }
+      .resume-actions .button { width: 100%; justify-content: center; }
       .gallery-intro { align-items: start; flex-direction: column; }
       .design-stage { min-height: 535px; aspect-ratio: 4 / 5; border-radius: 25px; }
       .timeline { padding-inline: 24px; }
@@ -580,6 +632,7 @@
       <a href="#robotics">Robotics</a>
       <a href="#digital-literacy">Digital Literacy</a>
       <a href="#learning">MS Learning</a>
+      <a href="#professional">Beyond the Classroom</a>
       <a class="nav-cta" href="#contact">Connect</a>
     </div>
     <button class="menu" id="menuButton" aria-label="Open navigation" aria-expanded="false">☰</button>
@@ -589,7 +642,8 @@
     <div class="wrap hero">
       <div class="hero-copy reveal">
         <h1 class="hero-focus discipline-title">Design Tech <span>Robotics Computer Science Cybersecurity</span></h1>
-        <p>I am <strong>Starcrest Alcorcon</strong>, a <strong>Middle School Design Technology, Robotics, and Computer Science educator</strong>. I create <strong>human-centred design learning</strong> where students understand people, define meaningful needs, develop ideas, build prototypes, test with users, and reflect on how their thinking changes.</p>
+        <p>I am <strong>Starcrest Alcorcon</strong>, a <strong>Design Technology, Robotics, and Computer Science educator</strong> with <strong>17 years of international school experience</strong> across Elementary and Middle School.</p>
+        <p>I develop concept-driven, hands-on learning experiences where students investigate real-world needs, explore materials and technologies, and transform ideas into meaningful solutions. My practice connects human-centred Design Thinking, digital design, fabrication, and collaborative problem-solving to develop technical confidence, creativity, and transferable understanding.</p>
         <div class="hero-actions">
           <a class="button primary" href="#process">Explore the student process <span class="arrow">→</span></a>
           <a class="button secondary" href="#learning">See the learning framework <span class="arrow">↓</span></a>
@@ -608,20 +662,59 @@
       <div class="wrap">
         <div class="section-head reveal">
           <div><div class="kicker">Human-Centred Learning</div><h2>Students’ Design Thinking Process</h2></div>
-          <p><strong>Learning begins with people.</strong> Students move through a flexible cycle of listening, defining, imagining, prototyping, testing, and reflecting.</p>
+          <p><strong>Learning begins with people.</strong> Students investigate needs, define meaningful problems, develop ideas, build prototypes, test with users, and reflect on how their thinking evolves.</p>
         </div>
         <div class="outcome-grid">
           <article class="panel outcome-lead reveal">
             <div class="kicker">A visible learning cycle</div>
             <h2>Understand. Create. Improve.</h2>
-            <p>Students investigate real people and contexts, explain their decisions, and use feedback to make each idea more useful, inclusive, and effective.</p>
+            <p>Students learn to make informed design decisions by connecting user needs, conceptual understanding, materials, and technology.</p>
           </article>
-          <div class="outcome-cards">
-            <article class="panel outcome-card reveal"><span>01 / UNDERSTAND</span><h3>Listen to people</h3><p>Observe, interview, and learn about users, contexts, and experiences.</p></article>
-            <article class="panel outcome-card reveal"><span>02 / DEFINE</span><h3>Frame the need</h3><p>Turn research into a clear problem, audience, and success criteria.</p></article>
-            <article class="panel outcome-card reveal"><span>03 / CREATE</span><h3>Ideate & prototype</h3><p>Develop possible ideas and make versions that others can experience.</p></article>
-            <article class="panel outcome-card reveal"><span>04 / IMPROVE</span><h3>Test & reflect</h3><p>Gather feedback, revise decisions, and explain how learning changed.</p></article>
-          </div>
+          <article class="panel artifact-feature reveal">
+            <div class="artifact-header">
+              <div class="kicker">Featured Learning Artifact</div>
+              <h3>Design Thinking in Action: Animated Story Games for Grade 5 Clients</h3>
+            </div>
+            <div class="artifact-media" aria-label="Animated story game project highlights">
+              <figure>
+                <img src="assets/design-tech/design-01.webp" alt="Students interviewing younger clients about their interests and game experiences">
+                <figcaption>Client interviews</figcaption>
+              </figure>
+              <figure>
+                <img src="assets/design-tech/design-07.webp" alt="Student testing a handmade Makey Makey game controller" loading="lazy">
+                <figcaption>Physical prototyping</figcaption>
+              </figure>
+              <figure>
+                <img src="assets/design-tech/design-10.webp" alt="Students sharing their interactive games during Game Day" loading="lazy">
+                <figcaption>Game Day with clients</figcaption>
+              </figure>
+            </div>
+            <div class="artifact-story">
+              <section class="artifact-phase">
+                <span>01 / DISCOVER & DEFINE</span>
+                <h4>Start with the client</h4>
+                <p>Following three weeks of foundational skill development through game design challenges in 3D design, coding, and animation, students applied their technical skills to an authentic performance assessment: designing an animated story game for Grade 5 clients. Guided by the concept-based question, <strong>“How can the combination of digital design and physical interaction shape a user's experience of a story?”</strong>, students began by developing interview questions and meeting with their Grade 5 clients to understand their interests, preferences, and gaming experiences.</p>
+              </section>
+              <section class="artifact-phase">
+                <span>02 / PLAN & PROTOTYPE</span>
+                <h4>Turn insights into a playable draft</h4>
+                <p>Using insights gathered from these interviews, students completed structured design planners to organize their game concepts, map out storylines, plan animations, identify interactions, and establish design requirements before developing their prototypes. They then applied their coding skills to program animated characters, scenes, and interactive game elements, creating their first playable drafts. Through Padlet, students shared their prototypes and gathered feedback to identify improvements in their game design and storytelling.</p>
+              </section>
+              <section class="artifact-phase">
+                <span>03 / BUILD, TEST & REFLECT</span>
+                <h4>Connect digital and physical design</h4>
+                <p>Students then extended their digital creations into physical computing by designing and fabricating cardboard game controllers connected to Makey Makey circuits. This stage challenged them to combine creativity, material construction, circuitry, and coding to create functional, hands-on interactions. A second round of feedback focused on controller usability and user-friendliness, allowing students to refine both the digital game and its physical interface. The project culminated in a Game Day celebration, where Grade 5 clients played and experienced the completed games. Students concluded by reflecting on their design decisions, evaluating their solutions, and documenting their learning journey in their digital portfolios.</p>
+              </section>
+            </div>
+            <div class="artifact-tags" aria-label="Project skills">
+              <span class="tag">Client Interviews</span>
+              <span class="tag">3D Design</span>
+              <span class="tag">Coding & Animation</span>
+              <span class="tag">Makey Makey</span>
+              <span class="tag">User Testing</span>
+              <span class="tag">Portfolio Reflection</span>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -867,6 +960,17 @@
               <li>Makerspace and creative technology activities</li>
             </ul>
           </article>
+        </div>
+        <div class="panel resume-feature reveal">
+          <div>
+            <div class="kicker">Professional Profile</div>
+            <h3>Résumé</h3>
+            <p>Explore my international school experience, teaching roles, qualifications, and professional learning.</p>
+          </div>
+          <div class="resume-actions">
+            <a class="button primary" href="Starcrest-Alcorcon-Resume.pdf" target="_blank" rel="noopener">View résumé <span class="arrow">→</span></a>
+            <a class="button secondary" href="Starcrest-Alcorcon-Resume.pdf" download>Download PDF <span class="arrow">↓</span></a>
+          </div>
         </div>
       </div>
     </section>
