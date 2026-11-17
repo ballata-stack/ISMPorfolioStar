@@ -461,11 +461,112 @@
     }
     .artifact-header { position: relative; z-index: 1; max-width: 890px; margin-bottom: 30px; }
     .artifact-header h3 { margin: 9px 0 0; font-size: clamp(34px, 5vw, 58px); line-height: 1; letter-spacing: -.05em; }
-    .artifact-media { display: grid; grid-template-columns: 1.35fr .8fr .8fr; gap: 12px; margin-bottom: 30px; }
-    .artifact-media figure { min-height: 250px; margin: 0; position: relative; overflow: hidden; border-radius: 18px; background: #dfe9e5; }
-    .artifact-media img { width: 100%; height: 100%; object-fit: cover; }
-    .artifact-media figure::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(16,43,36,.42), transparent 45%); }
-    .artifact-media figcaption { position: absolute; left: 18px; right: 18px; bottom: 14px; z-index: 1; color: #fff; font-size: 12px; font-weight: 780; letter-spacing: .02em; }
+    .artifact-gallery { position: relative; z-index: 1; margin-bottom: 32px; }
+    .artifact-gallery-stage {
+      --artifact-image: url('assets/design-thinking/design-thinking-01.webp');
+      height: clamp(470px, 54vw, 620px);
+      margin: 0;
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      isolation: isolate;
+      border: 1px solid rgba(35,76,66,.12);
+      border-radius: 24px;
+      background: #13221e;
+      outline: none;
+    }
+    .artifact-gallery-stage::before {
+      content: "";
+      position: absolute;
+      inset: -38px;
+      z-index: -2;
+      background: var(--artifact-image) center / cover no-repeat;
+      filter: blur(34px) brightness(.5) saturate(.72);
+      opacity: .68;
+      transform: scale(1.1);
+      transition: background-image .25s ease;
+    }
+    .artifact-gallery-stage::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(7,18,15,.05) 48%, rgba(7,18,15,.86) 100%);
+    }
+    .artifact-gallery-stage:focus-visible { box-shadow: 0 0 0 4px rgba(47,111,98,.28); }
+    .artifact-gallery-stage > img {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      z-index: 0;
+      object-fit: contain;
+      padding: 25px;
+      filter: drop-shadow(0 16px 34px rgba(0,0,0,.24));
+    }
+    .artifact-gallery-caption { position: absolute; left: 28px; right: 170px; bottom: 24px; z-index: 2; color: #fff; }
+    .artifact-gallery-caption span { display: block; color: #cce3dc; font: 820 11px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .13em; text-transform: uppercase; }
+    .artifact-gallery-caption strong { display: block; margin-top: 7px; font-size: clamp(22px, 3vw, 34px); line-height: 1.04; letter-spacing: -.035em; }
+    .artifact-expand {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      z-index: 3;
+      padding: 10px 14px;
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(8,22,18,.55);
+      backdrop-filter: blur(14px);
+      font: 760 12px Inter, ui-sans-serif, sans-serif;
+      cursor: pointer;
+    }
+    .artifact-expand:hover { background: rgba(8,22,18,.8); }
+    .artifact-gallery-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 16px 2px 12px; }
+    .artifact-slideshow-copy { min-width: 0; }
+    .artifact-slideshow-label { display: block; margin-bottom: 4px; color: var(--acid); font: 820 10px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .13em; text-transform: uppercase; }
+    .artifact-gallery-toolbar p { margin: 0; color: var(--muted); font-size: 13px; }
+    .artifact-gallery-controls { display: flex; align-items: center; gap: 9px; }
+    .artifact-gallery-controls button {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(35,76,66,.13);
+      border-radius: 50%;
+      color: var(--ink);
+      background: rgba(255,255,255,.8);
+      font-size: 18px;
+      cursor: pointer;
+      transition: transform .2s ease, border-color .2s ease;
+    }
+    .artifact-gallery-controls button:hover { transform: translateY(-2px); border-color: var(--acid); }
+    .artifact-gallery-controls .artifact-play-pause { width: auto; min-width: 82px; padding: 0 16px; border-radius: 999px; font: 780 12px Inter, ui-sans-serif, sans-serif; }
+    .artifact-gallery-counter { min-width: 66px; color: var(--acid); font: 820 11px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .1em; text-align: center; }
+    .artifact-progress { height: 5px; overflow: hidden; border-radius: 999px; background: rgba(35,76,66,.09); }
+    .artifact-progress span { display: block; width: 8.333%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--acid), #7eaa9f); transition: width .45s ease; }
+    .artifact-lightbox {
+      width: min(96vw, 1500px);
+      height: min(94vh, 1000px);
+      padding: 0;
+      border: 0;
+      border-radius: 24px;
+      color: #fff;
+      background: #0b1714;
+      overflow: hidden;
+      box-shadow: 0 30px 100px rgba(0,0,0,.48);
+    }
+    .artifact-lightbox::backdrop { background: rgba(6,14,12,.82); backdrop-filter: blur(8px); }
+    .artifact-lightbox figure { width: 100%; height: 100%; margin: 0; display: grid; grid-template-rows: 1fr auto; }
+    .artifact-lightbox img { width: 100%; height: 100%; min-height: 0; object-fit: contain; padding: 34px 76px 18px; }
+    .artifact-lightbox figcaption { padding: 17px 76px 24px; color: rgba(255,255,255,.88); font-weight: 720; text-align: center; }
+    .artifact-lightbox button { position: absolute; z-index: 2; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.2); color: #fff; background: rgba(255,255,255,.09); backdrop-filter: blur(12px); cursor: pointer; }
+    .artifact-lightbox button:hover { background: rgba(255,255,255,.18); }
+    .artifact-lightbox-close { top: 18px; right: 18px; width: 44px; height: 44px; border-radius: 50%; font-size: 25px; }
+    .artifact-lightbox-previous, .artifact-lightbox-next { top: 50%; width: 48px; height: 58px; border-radius: 14px; font-size: 22px; transform: translateY(-50%); }
+    .artifact-lightbox-previous { left: 16px; }
+    .artifact-lightbox-next { right: 16px; }
     .artifact-story { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .artifact-phase { padding: 25px; border: 1px solid rgba(35,76,66,.09); border-radius: 17px; background: rgba(255,255,255,.68); }
     .artifact-phase > span { color: var(--acid); font: 850 11px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .12em; }
@@ -563,8 +664,6 @@
       .outcome-grid, .domain-layout { grid-template-columns: 1fr; }
       .professional-board, .learning-grid { grid-template-columns: 1fr; }
       .artifact-story { grid-template-columns: 1fr; }
-      .artifact-media { grid-template-columns: 1.25fr 1fr; }
-      .artifact-media figure:last-child { grid-column: 1 / -1; min-height: 290px; }
       .resume-feature { align-items: flex-start; flex-direction: column; }
       .resume-actions { justify-content: flex-start; }
       .experience-grid { grid-template-columns: 1fr; }
@@ -587,8 +686,16 @@
       .outcome-cards, .literacy-grid { grid-template-columns: 1fr; }
       .outcome-lead, .domain-intro, .output-panel { padding: 29px; }
       .artifact-feature { padding: 27px; }
-      .artifact-media { grid-template-columns: 1fr; }
-      .artifact-media figure, .artifact-media figure:last-child { grid-column: auto; min-height: 230px; }
+      .artifact-gallery-stage { height: 520px; border-radius: 19px; }
+      .artifact-gallery-stage > img { padding: 16px; }
+      .artifact-gallery-caption { left: 20px; right: 20px; bottom: 20px; }
+      .artifact-gallery-caption strong { font-size: 24px; }
+      .artifact-expand { top: 12px; right: 12px; }
+      .artifact-gallery-toolbar { align-items: flex-start; flex-direction: column; gap: 10px; }
+      .artifact-gallery-controls { width: 100%; justify-content: space-between; }
+      .artifact-lightbox { width: 100vw; height: 100vh; max-width: none; max-height: none; border-radius: 0; }
+      .artifact-lightbox img { padding: 64px 46px 12px; }
+      .artifact-lightbox figcaption { padding: 14px 48px 24px; font-size: 13px; }
       .resume-feature { padding: 28px; }
       .resume-actions { width: 100%; }
       .resume-actions .button { width: 100%; justify-content: center; }
@@ -675,20 +782,38 @@
               <div class="kicker">Featured Learning Artifact</div>
               <h3>Design Thinking in Action: Animated Story Games for Grade 5 Clients</h3>
             </div>
-            <div class="artifact-media" aria-label="Animated story game project highlights">
-              <figure>
-                <img src="assets/design-tech/design-01.webp" alt="Students interviewing younger clients about their interests and game experiences">
-                <figcaption>Client interviews</figcaption>
+            <div class="artifact-gallery" id="artifactGallery" aria-label="Design Thinking in Action photo slideshow">
+              <figure class="artifact-gallery-stage" id="artifactGalleryStage" tabindex="0" aria-label="Slide 1 of 12">
+                <img id="artifactGalleryImage" src="assets/design-thinking/design-thinking-05.webp" alt="A collaborative production plan assigning scenes and responsibilities">
+                <figcaption class="artifact-gallery-caption" aria-live="polite">
+                  <span id="artifactGalleryPhase">Plan · Team organization</span>
+                  <strong id="artifactGalleryCaption">Collaborative production plan</strong>
+                </figcaption>
+                <button class="artifact-expand" id="artifactExpand" type="button" aria-label="View the current photo full size">View full size ↗</button>
               </figure>
-              <figure>
-                <img src="assets/design-tech/design-07.webp" alt="Student testing a handmade Makey Makey game controller" loading="lazy">
-                <figcaption>Physical prototyping</figcaption>
-              </figure>
-              <figure>
-                <img src="assets/design-tech/design-10.webp" alt="Students sharing their interactive games during Game Day" loading="lazy">
-                <figcaption>Game Day with clients</figcaption>
-              </figure>
+              <div class="artifact-gallery-toolbar">
+                <div class="artifact-slideshow-copy">
+                  <span class="artifact-slideshow-label">Process slideshow</span>
+                  <p>All 12 pieces of student process evidence, shown one at a time.</p>
+                </div>
+                <div class="artifact-gallery-controls" aria-label="Artifact slideshow controls">
+                  <button id="artifactPrevious" type="button" aria-label="Previous slideshow photo">←</button>
+                  <button class="artifact-play-pause" id="artifactPlayPause" type="button" aria-label="Pause slideshow">Pause</button>
+                  <span class="artifact-gallery-counter" id="artifactGalleryCounter">01 / 12</span>
+                  <button id="artifactNext" type="button" aria-label="Next slideshow photo">→</button>
+                </div>
+              </div>
+              <div class="artifact-progress" aria-hidden="true"><span id="artifactProgress"></span></div>
             </div>
+            <dialog class="artifact-lightbox" id="artifactLightbox" aria-label="Full-size design artifact photo">
+              <figure>
+                <img id="artifactLightboxImage" src="assets/design-thinking/design-thinking-05.webp" alt="A collaborative production plan assigning scenes and responsibilities">
+                <figcaption id="artifactLightboxCaption">Plan · Team organization · Collaborative production plan</figcaption>
+              </figure>
+              <button class="artifact-lightbox-close" id="artifactLightboxClose" type="button" aria-label="Close full-size photo">×</button>
+              <button class="artifact-lightbox-previous" id="artifactLightboxPrevious" type="button" aria-label="Previous full-size photo">←</button>
+              <button class="artifact-lightbox-next" id="artifactLightboxNext" type="button" aria-label="Next full-size photo">→</button>
+            </dialog>
             <div class="artifact-story">
               <section class="artifact-phase">
                 <span>01 / DISCOVER & DEFINE</span>
@@ -1006,6 +1131,106 @@
     }));
     document.querySelector('#year').textContent = new Date().getFullYear();
     const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const artifactPhotos = [
+      { src: 'assets/design-thinking/design-thinking-05.webp', alt: 'A collaborative production plan assigning scenes and responsibilities', phase: 'Plan · Team organization', caption: 'Collaborative production plan' },
+      { src: 'assets/design-thinking/design-thinking-03.webp', alt: 'A structured Grade 5 client interview guide', phase: 'Discover · Interview preparation', caption: 'Grade 5 client interview guide' },
+      { src: 'assets/design-thinking/design-thinking-06.webp', alt: 'A sequence of structured design-planning pages', phase: 'Plan · Design development', caption: 'Structured design-planning sequence' },
+      { src: 'assets/design-thinking/design-thinking-01.webp', alt: 'Students meeting with clients during the interview stage', phase: 'Discover · Client research', caption: 'Client interview in action' },
+      { src: 'assets/design-thinking/design-thinking-02.webp', alt: 'A student-designed page of interview questions for game clients', phase: 'Discover · Interview preparation', caption: 'Student-developed interview questions' },
+      { src: 'assets/design-thinking/design-thinking-04.webp', alt: 'Students listening to a younger client during a design interview', phase: 'Discover · Client voice', caption: 'Listening to client preferences' },
+      { src: 'assets/design-thinking/design-thinking-07.webp', alt: 'Digital feedback collected on students’ playable game drafts', phase: 'Test · Feedback', caption: 'Feedback on playable drafts' },
+      { src: 'assets/design-thinking/design-thinking-08.webp', alt: 'A student-built physical game controller connected to a laptop', phase: 'Create · Physical computing', caption: 'Physical game controller prototype' },
+      { src: 'assets/design-thinking/design-thinking-09.webp', alt: 'Hands testing a custom Makey Makey game controller', phase: 'Create · Physical computing', caption: 'Testing a custom Makey Makey controller' },
+      { src: 'assets/design-thinking/design-thinking-10.webp', alt: 'Students building and testing a cardboard game interface', phase: 'Create · Iteration', caption: 'Building and testing the interface' },
+      { src: 'assets/design-thinking/design-thinking-11.webp', alt: 'Students sharing an interactive game with clients during Game Day', phase: 'Share · Authentic audience', caption: 'Game Day with clients' },
+      { src: 'assets/design-thinking/design-thinking-12.webp', alt: 'A digital portfolio page documenting reflection and evaluation', phase: 'Reflect · Portfolio evidence', caption: 'Portfolio reflection and evaluation' }
+    ];
+    const artifactGalleryStage = document.querySelector('#artifactGalleryStage');
+    const artifactGalleryImage = document.querySelector('#artifactGalleryImage');
+    const artifactGalleryPhase = document.querySelector('#artifactGalleryPhase');
+    const artifactGalleryCaption = document.querySelector('#artifactGalleryCaption');
+    const artifactGalleryCounter = document.querySelector('#artifactGalleryCounter');
+    const artifactProgress = document.querySelector('#artifactProgress');
+    const artifactPrevious = document.querySelector('#artifactPrevious');
+    const artifactNext = document.querySelector('#artifactNext');
+    const artifactPlayPause = document.querySelector('#artifactPlayPause');
+    const artifactExpand = document.querySelector('#artifactExpand');
+    const artifactLightbox = document.querySelector('#artifactLightbox');
+    const artifactLightboxImage = document.querySelector('#artifactLightboxImage');
+    const artifactLightboxCaption = document.querySelector('#artifactLightboxCaption');
+    const artifactLightboxClose = document.querySelector('#artifactLightboxClose');
+    const artifactLightboxPrevious = document.querySelector('#artifactLightboxPrevious');
+    const artifactLightboxNext = document.querySelector('#artifactLightboxNext');
+    let artifactIndex = 0;
+    let artifactTimer = null;
+    let artifactPlaying = !reduceMotion;
+
+    function updateArtifactPlayButton() {
+      artifactPlayPause.textContent = artifactPlaying ? 'Pause' : 'Play';
+      artifactPlayPause.setAttribute('aria-label', artifactPlaying ? 'Pause slideshow' : 'Play slideshow');
+    }
+
+    function stopArtifactTimer() {
+      if (artifactTimer) clearInterval(artifactTimer);
+      artifactTimer = null;
+    }
+
+    function startArtifactTimer() {
+      stopArtifactTimer();
+      if (!artifactPlaying || artifactLightbox.open || document.hidden) return;
+      artifactTimer = setInterval(() => showArtifact(artifactIndex + 1, false), 6500);
+    }
+
+    function showArtifact(nextIndex, resetTimer = true) {
+      artifactIndex = (nextIndex + artifactPhotos.length) % artifactPhotos.length;
+      const item = artifactPhotos[artifactIndex];
+      artifactGalleryImage.src = item.src;
+      artifactGalleryImage.alt = item.alt;
+      artifactGalleryPhase.textContent = item.phase;
+      artifactGalleryCaption.textContent = item.caption;
+      artifactGalleryCounter.textContent = String(artifactIndex + 1).padStart(2, '0') + ' / ' + String(artifactPhotos.length).padStart(2, '0');
+      artifactGalleryStage.setAttribute('aria-label', 'Slide ' + (artifactIndex + 1) + ' of ' + artifactPhotos.length + ': ' + item.caption);
+      artifactGalleryStage.style.setProperty('--artifact-image', 'url("' + item.src + '")');
+      artifactProgress.style.width = ((artifactIndex + 1) / artifactPhotos.length * 100) + '%';
+      artifactLightboxImage.src = item.src;
+      artifactLightboxImage.alt = item.alt;
+      artifactLightboxCaption.textContent = item.phase + ' · ' + item.caption;
+      if (resetTimer) startArtifactTimer();
+    }
+
+    artifactPrevious.addEventListener('click', () => showArtifact(artifactIndex - 1));
+    artifactNext.addEventListener('click', () => showArtifact(artifactIndex + 1));
+    artifactPlayPause.addEventListener('click', () => {
+      artifactPlaying = !artifactPlaying;
+      updateArtifactPlayButton();
+      if (artifactPlaying) startArtifactTimer(); else stopArtifactTimer();
+    });
+    artifactGalleryStage.addEventListener('keydown', event => {
+      if (event.key === 'ArrowLeft') { event.preventDefault(); showArtifact(artifactIndex - 1); }
+      if (event.key === 'ArrowRight') { event.preventDefault(); showArtifact(artifactIndex + 1); }
+    });
+    artifactExpand.addEventListener('click', () => {
+      stopArtifactTimer();
+      artifactLightbox.showModal();
+    });
+    artifactLightboxClose.addEventListener('click', () => artifactLightbox.close());
+    artifactLightboxPrevious.addEventListener('click', () => showArtifact(artifactIndex - 1));
+    artifactLightboxNext.addEventListener('click', () => showArtifact(artifactIndex + 1));
+    artifactLightbox.addEventListener('click', event => {
+      if (event.target === artifactLightbox) artifactLightbox.close();
+    });
+    artifactLightbox.addEventListener('keydown', event => {
+      if (event.key === 'ArrowLeft') { event.preventDefault(); showArtifact(artifactIndex - 1); }
+      if (event.key === 'ArrowRight') { event.preventDefault(); showArtifact(artifactIndex + 1); }
+    });
+    artifactLightbox.addEventListener('close', startArtifactTimer);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stopArtifactTimer(); else startArtifactTimer();
+    });
+    updateArtifactPlayButton();
+    showArtifact(0, false);
+    startArtifactTimer();
 
     const teachingGroups = [
       { key: 'explore', category: 'Explore', line: 'Investigate the challenge and possible approaches.', count: 15 },
