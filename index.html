@@ -624,6 +624,20 @@
     .educator-role { display: grid; grid-template-columns: minmax(190px, .34fr) 1fr; gap: 28px; align-items: center; margin-top: 18px; padding: 27px 30px; border: 1px solid rgba(35,76,66,.1); border-radius: 20px; background: linear-gradient(135deg, rgba(216,235,228,.72), rgba(244,235,214,.72)); }
     .educator-role h3 { margin: 0; font-size: clamp(26px, 3.2vw, 40px); line-height: 1; letter-spacing: -.045em; }
     .educator-role p { margin: 0; color: #355c53; line-height: 1.7; }
+    .robotics-artifact { background: linear-gradient(135deg, #142f3a 0%, #1f5862 56%, #2f746c 100%); }
+    .robotics-artifact::after { content: "ITERATE"; }
+    .robotics-artifact .design-artifact-head { grid-template-columns: 1fr; }
+    .robotics-artifact .design-artifact-head h3 { max-width: 1080px; font-size: clamp(35px, 5.3vw, 68px); }
+    .robotics-overview { grid-template-columns: 1fr; }
+    .robotics-concept-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 16px; margin-top: 18px; }
+    .robotics-inquiry-card, .robotics-concepts-card { padding: 29px; border-radius: 20px; box-shadow: 0 18px 48px rgba(28,67,62,.09); }
+    .robotics-inquiry-card { color: var(--ink); background: linear-gradient(145deg, #f4ead3, #e9d5ac); }
+    .robotics-inquiry-card h3, .robotics-concepts-card h3 { margin: 0 0 18px; font-size: 14px; letter-spacing: .13em; text-transform: uppercase; }
+    .robotics-inquiry-card blockquote { margin: 0; font-size: clamp(25px, 3.2vw, 37px); font-weight: 790; line-height: 1.16; letter-spacing: -.035em; }
+    .robotics-concepts-card { color: #fff; background: linear-gradient(145deg, #173d3a, #28645b); }
+    .robotics-concepts-card p { margin: 0; color: rgba(255,255,255,.85); font-size: 16px; line-height: 1.7; }
+    .robotics-concepts-card p + p { margin-top: 16px; }
+    .robotics-concepts-card strong { color: #d7eee7; }
 
     .gallery-intro { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin: 54px 0 24px; }
     .gallery-intro h3 { margin: 7px 0 0; font-size: clamp(29px, 4vw, 46px); letter-spacing: -.045em; }
@@ -656,13 +670,19 @@
     .learning-card h3 { margin: 34px 0 10px; font-size: 23px; line-height: 1.12; letter-spacing: -.035em; }
     .learning-card p { margin: 0; color: var(--muted); font-size: 14px; }
 
-    .professional-board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .board-column { min-height: 360px; padding: 31px; position: relative; overflow: hidden; }
+    .professional-board { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; align-items: start; }
+    .board-column { min-height: 0; padding: 31px; position: relative; overflow: hidden; }
     .board-column::after { content: attr(data-number); position: absolute; right: -9px; bottom: -58px; color: rgba(47,111,98,.055); font-size: 145px; font-weight: 900; letter-spacing: -.08em; }
     .board-column h3 { margin: 8px 0 24px; font-size: 28px; line-height: 1.08; letter-spacing: -.04em; }
     .board-column ul { margin: 0; padding-left: 18px; color: var(--muted); }
     .board-column li { margin: 12px 0; padding-left: 4px; }
     .board-column li::marker { color: var(--acid); }
+    .board-column li strong { color: var(--ink); }
+    .board-column li em { color: #547269; }
+    .board-column ul ul { margin-top: 9px; padding-left: 20px; }
+    .board-column ul ul li { margin: 8px 0; }
+    .board-column ul ul ul { margin-top: 6px; }
+    .board-column ul ul ul li { margin: 6px 0; }
 
     .resume-feature { display: flex; align-items: center; justify-content: space-between; gap: 34px; margin-top: 22px; padding: 34px 38px; }
     .resume-feature h3 { margin: 7px 0 5px; font-size: clamp(28px, 4vw, 42px); line-height: 1; letter-spacing: -.04em; }
@@ -704,6 +724,7 @@
       .design-artifact-meta { max-width: none; text-align: left; }
       .design-journey-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .educator-role { grid-template-columns: 1fr; }
+      .robotics-concept-grid { grid-template-columns: 1fr; }
       .resume-feature { align-items: flex-start; flex-direction: column; }
       .resume-actions { justify-content: flex-start; }
       .experience-grid { grid-template-columns: 1fr; }
@@ -779,7 +800,6 @@
     <div class="nav-links" id="navLinks">
       <a href="#process">Design Process</a>
       <a href="#design-tech">Design Tech</a>
-      <a href="#coding">Coding</a>
       <a href="#robotics">Robotics</a>
       <a href="#digital-literacy">Digital Literacy</a>
       <a href="#learning">MS Learning</a>
@@ -995,6 +1015,10 @@
             <img src="assets/design-tech/design-06.webp" alt="CAD model of a funnel water slide" loading="lazy">
             <figcaption class="design-caption"><p><strong>02. Plan &amp; Design</strong></p></figcaption>
           </figure>
+          <figure class="design-slide" style="--slide-image: url('assets/design-tech/design-10.webp')" aria-hidden="true">
+            <img src="assets/design-tech/design-10.webp" alt="Student work shared for feedback" loading="lazy">
+            <figcaption class="design-caption"><p><strong>03. Research &amp; Rethink</strong></p></figcaption>
+          </figure>
           <figure class="design-slide" style="--slide-image: url('assets/design-tech/design-07.webp')" aria-hidden="true">
             <img src="assets/design-tech/design-07.webp" alt="Student creating an amusement park ride in CAD" loading="lazy">
             <figcaption class="design-caption"><p><strong>04. Fabricate &amp; Collaborate</strong></p></figcaption>
@@ -1006,10 +1030,6 @@
           <figure class="design-slide" style="--slide-image: url('assets/design-tech/design-09.webp')" aria-hidden="true">
             <img src="assets/design-tech/design-09.webp" alt="Student developing a ride model using CAD tools" loading="lazy">
             <figcaption class="design-caption"><p><strong>04. Fabricate &amp; Collaborate</strong></p></figcaption>
-          </figure>
-          <figure class="design-slide" style="--slide-image: url('assets/design-tech/design-10.webp')" aria-hidden="true">
-            <img src="assets/design-tech/design-10.webp" alt="Student work shared for feedback" loading="lazy">
-            <figcaption class="design-caption"><p><strong>03. Research &amp; Rethink</strong></p></figcaption>
           </figure>
           <figure class="design-slide" style="--slide-image: url('assets/design-tech/design-11.webp')" aria-hidden="true">
             <img src="assets/design-tech/design-11.webp" alt="Student reflection and peer feedback on the amusement park ride design" loading="lazy">
@@ -1030,41 +1050,10 @@
       </div>
     </section>
 
-    <section id="coding">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div><div class="kicker">02 / Learning Area</div><h2>Computer Science / Coding</h2></div>
-          <p><strong>Design interactive experiences around users.</strong> Students define needs, prototype in code, test with people, debug, and improve.</p>
-        </div>
-        <div class="domain-layout">
-          <article class="panel domain-intro reveal">
-            <div class="kicker">Learning focus</div>
-            <h2>Code for people.</h2>
-            <p>Projects move from visual logic to text-based programming and web creation while keeping user needs, problem-solving, and feedback visible.</p>
-          </article>
-          <article class="panel output-panel reveal">
-            <div class="kicker">Process evidence</div>
-            <h3>How students show their thinking</h3>
-            <ul class="output-list">
-              <li>User needs and success criteria for programs</li>
-              <li>Block coding, Python, and HTML prototypes</li>
-              <li>Peer and user testing, debugging evidence, and revisions</li>
-              <li>Reflections explaining how the experience improved</li>
-            </ul>
-          </article>
-        </div>
-        <div class="pathway">
-          <article class="panel path-step reveal"><span>01</span><h3>Block Coding</h3><p>Sequence, logic, events, variables, and rapid creative iteration.</p></article>
-          <article class="panel path-step reveal"><span>02</span><h3>Python</h3><p>Readable programs, decomposition, testing, and debugging.</p></article>
-          <article class="panel path-step reveal"><span>03</span><h3>HTML</h3><p>Structured digital communication and user-focused web work.</p></article>
-        </div>
-      </div>
-    </section>
-
     <section id="robotics">
       <div class="wrap">
         <div class="section-head reveal">
-          <div><div class="kicker">03 / Learning Area</div><h2>Robotics and Circuits</h2></div>
+          <div><div class="kicker">02 / Learning Area</div><h2>Robotics and Circuits</h2></div>
           <p><strong>Engineer for people and authentic challenges.</strong> Classroom projects, team challenges, clubs, and competitions make collaboration, testing, and iteration essential.</p>
         </div>
         <div class="domain-layout">
@@ -1091,8 +1080,64 @@
           </article>
         </div>
 
+        <article class="design-artifact robotics-artifact reveal">
+          <div class="design-artifact-head">
+            <div>
+              <div class="kicker">Robotics Artifact</div>
+              <h3>Collaborative Robotics | Engineering Design Process | Prototyping | Iteration</h3>
+            </div>
+          </div>
+          <div class="design-artifact-overview robotics-overview">
+            <section class="design-artifact-block">
+              <span class="design-artifact-label">Project Overview</span>
+              <p>Students worked collaboratively to build a basic robot model, test its performance, and investigate ways to improve its movement, driving, and ability to complete tasks. Through hands-on construction and class challenges, they explored how engineering decisions affect a robot's performance.</p>
+            </section>
+          </div>
+        </article>
+
+        <div class="design-journey-heading reveal">
+          <h3>The Engineering Journey</h3>
+        </div>
+        <div class="design-journey-grid">
+          <article class="design-journey-card reveal">
+            <h4><span>01.</span>Build &amp; Explore</h4>
+            <p>Collaboratively assembled a basic robot model, becoming familiar with its structure, components, and mechanisms.</p>
+          </article>
+          <article class="design-journey-card reveal">
+            <h4><span>02.</span>Test &amp; Observe</h4>
+            <p>Tested the initial build through driving and task-based challenges, observing how the robot moved and performed.</p>
+          </article>
+          <article class="design-journey-card reveal">
+            <h4><span>03.</span>Research &amp; Improve</h4>
+            <p>Investigated possible design and construction improvements to enhance movement, driving, stability, and task handling.</p>
+          </article>
+          <article class="design-journey-card reveal">
+            <h4><span>04.</span>Iterate &amp; Refine</h4>
+            <p>Planned and implemented changes, tested revised builds, and evaluated how each iteration affected performance.</p>
+          </article>
+          <article class="design-journey-card reveal">
+            <h4><span>05.</span>Collaborate &amp; Challenge</h4>
+            <p>Worked in teams to solve engineering problems, share ideas, refine designs, and apply learning through class challenges.</p>
+          </article>
+        </div>
+
+        <div class="robotics-concept-grid">
+          <article class="robotics-inquiry-card reveal">
+            <h3>Conceptual Inquiry</h3>
+            <blockquote>How can testing and iteration help engineers improve the performance of a designed system?</blockquote>
+          </article>
+          <article class="robotics-concepts-card reveal">
+            <p><strong>Key Concepts:</strong> Systems, Function, Development</p>
+            <p><strong>Related Concepts:</strong> Movement, Mechanisms, Performance, Optimization</p>
+          </article>
+        </div>
+        <article class="educator-role reveal">
+          <h3>My Role</h3>
+          <p>Designed and facilitated collaborative robotics experiences, guided students through the engineering design process, supported planning and troubleshooting, and encouraged evidence-based improvements through testing and reflection.</p>
+        </article>
+
         <div class="gallery-intro reveal">
-          <div><div class="kicker">Current picture collection</div><h3>Learning through the build cycle.</h3></div>
+          <div><h3>Learning through the build cycle.</h3></div>
           <p>Explore the existing classroom, club, collaboration, and competition photographs.</p>
         </div>
         <div class="teaching-category-nav reveal" id="teachingCategoryNav" aria-label="Robotics slideshow categories">
@@ -1119,7 +1164,7 @@
     <section id="digital-literacy">
       <div class="wrap">
         <div class="section-head reveal">
-          <div><div class="kicker">04 / Learning Area</div><h2>Digital Literacy</h2></div>
+          <div><div class="kicker">03 / Learning Area</div><h2>Digital Literacy</h2></div>
           <p><strong>Use digital systems with purpose and care.</strong> Students organize, communicate, question, create, and protect.</p>
         </div>
         <div class="literacy-grid">
@@ -1152,37 +1197,67 @@
       <div class="wrap">
         <div class="section-head reveal">
           <div><div class="kicker">Professional Learning</div><h2>Beyond the Classroom</h2></div>
-          <p><strong>Professional learning, service, and programs.</strong> Three connected areas strengthen classroom learning and student opportunities.</p>
         </div>
         <div class="professional-board">
           <article class="panel board-column reveal" data-number="01">
             <div class="kicker">01</div>
             <h3>Professional Learning Committees</h3>
             <ul>
-              <li>WASC Mid-Cycle Implementation Committee</li>
-              <li>Middle school collaboration and feedback presentation</li>
-              <li>AI literacy learning shared with educators</li>
+              <li>CMIS: Technology Committee - Planning for the New Campus</li>
+              <li>CMIS: Technology Sharing with Teachers</li>
+              <li>Interview Panel: CMIS (superintendent) ISM (ES Assistant Principal)</li>
+              <li>ISM Teacher Survey Commitee (2022,2023)</li>
+              <li>ISM WASC Mid-Cycle Implementation Committee</li>
             </ul>
           </article>
           <article class="panel board-column reveal" data-number="02">
             <div class="kicker">02</div>
-            <h3>PD</h3>
+            <h3>PROFESSIONAL WORKSHOP PRESENTATIONS</h3>
             <ul>
-              <li>IB MYP Design Workshop</li>
-              <li>Introduction to Engineering Design</li>
-              <li>VEX in the Classroom</li>
-              <li>EARCOS Middle School Workshop</li>
-              <li>AI and the Future of Education</li>
+              <li><strong>AIFE 21st Century Learning Presenter</strong> — Yokohama International School, Apr 2026<br><em>AI Literacy for Middle School Students</em></li>
+              <li><strong>EARCOS Middle School Workshop Presenter</strong>&nbsp; South Saigon International School, Jan 2026<br><em>Collaboration and Feedback Across Middle School Students</em></li>
+              <li><strong>EARCOS Teacher Workshop Co-Presenter</strong> Shangri-La Bangkok, Mar 2024<br><em>Bridging the Scale Gap – STEM</em></li>
+              <li><strong>ISM Learning Byte Speaker</strong> — International School Manila, 2023–2024<br><em>AR/VR and Technology Integration</em></li>
             </ul>
           </article>
           <article class="panel board-column reveal" data-number="03">
             <div class="kicker">03</div>
-            <h3>Afterschool</h3>
+            <h3>CERTIFICATION &amp; PROFFESIONAL DEVELOPMENT</h3>
             <ul>
-              <li>VEX Robotics teams and competitions</li>
-              <li>Game Design & Programming</li>
-              <li>Robotics mentoring and team development</li>
-              <li>Makerspace and creative technology activities</li>
+              <li><strong>Future of Learning Hongkong - Nov 2026</strong></li>
+              <li><strong>IB DP Design Technology Workshop</strong> - Nov 2026</li>
+              <li><strong>AP Cybersecurity&nbsp; Certification</strong> Jul 2026</li>
+              <li><strong>IB MYP Design Workshop</strong> - May 2026</li>
+              <li><strong>ISTE Certified Educator/Coach</strong> - Aug 2024</li>
+              <li><strong>Google Certified Educator - Level 1 &amp; 2</strong></li>
+              <li><strong>VEX Robotics Certification - </strong>2024</li>
+              <li><strong>Apple Teacher</strong> — 2022</li>
+            </ul>
+          </article>
+          <article class="panel board-column reveal" data-number="04">
+            <div class="kicker">04</div>
+            <h3>Afterschool Clubs</h3>
+            <ul>
+              <li>VEX Robotics teams and Competitions
+                <ul>
+                  <li>Robotics Automation &amp; Technology - October 2025
+                    <ul><li>Team Design Award</li></ul>
+                  </li>
+                  <li>VEX Qualifiers and Nationals 2025 - Total of 80 Teams Competing
+                    <ul>
+                      <li>Finalist Top 20 for Thailand National Event</li>
+                      <li>Final Top 8 for Battle of the North Qualifiers</li>
+                    </ul>
+                  </li>
+                  <li>VEX International Schools Competition: Panda Robotics - MAy 2025
+                    <ul><li>Team Work Champion</li></ul>
+                  </li>
+                  <li>VEX Qualifiers - November 2025</li>
+                </ul>
+              </li>
+              <li>Game Design &amp; Programming</li>
+              <li>Robotics mentoring and Robotics Vertical Program Development (ES - MS)</li>
+              <li>ISM Creative Technology Activities - (AR/VR; Digital Design; Gourmet Club)</li>
             </ul>
           </article>
         </div>
