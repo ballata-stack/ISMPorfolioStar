@@ -10,7 +10,7 @@
   <style>
     :root {
       --ink: #19312b;
-      --muted: #66766f;
+      --muted: #60716a;
       --night: #f4f7f5;
       --night-2: #ffffff;
       --card: rgba(255, 255, 255, .88);
@@ -104,7 +104,14 @@
     .nav-cta { padding: 10px 15px; color: #fff !important; background: var(--acid); border-radius: 11px; }
     .menu { display: none; border: 0; background: transparent; color: var(--ink); font-size: 24px; }
 
-    header { min-height: 100svh; display: grid; align-items: center; padding: 130px 0 70px; position: relative; }
+    header {
+      min-height: 100svh;
+      display: grid;
+      align-items: center;
+      padding: 130px 0 70px;
+      position: relative;
+      background: linear-gradient(135deg, rgba(240,248,244,.9), rgba(251,247,239,.86));
+    }
     .hero { display: grid; grid-template-columns: 1.2fr .8fr; align-items: center; gap: 68px; }
     h1 { margin: 20px 0 24px; font-size: clamp(53px, 7.2vw, 96px); line-height: .92; letter-spacing: -.065em; max-width: 900px; }
     h1 span { display: block; color: var(--acid); -webkit-text-stroke: 0; }
@@ -140,6 +147,17 @@
     @keyframes pulse { 50% { opacity: .2; transform: translateY(7px); } }
 
     section { padding: 110px 0; scroll-margin-top: 88px; }
+    main > section {
+      border-top: 1px solid rgba(35,76,66,.065);
+      box-shadow: inset 0 1px rgba(255,255,255,.5);
+    }
+    #process { background: linear-gradient(135deg, rgba(238,248,244,.88), rgba(248,251,247,.84)); }
+    #design-tech { background: linear-gradient(135deg, rgba(251,246,233,.9), rgba(246,249,241,.86)); }
+    #robotics { background: linear-gradient(135deg, rgba(238,247,248,.9), rgba(243,247,244,.86)); }
+    #digital-literacy { background: linear-gradient(135deg, rgba(244,242,250,.9), rgba(241,247,248,.86)); }
+    #learning { background: linear-gradient(135deg, rgba(251,243,240,.9), rgba(248,247,239,.86)); }
+    #professional { background: linear-gradient(135deg, rgba(240,247,242,.9), rgba(250,246,236,.86)); }
+    #contact { background: linear-gradient(135deg, rgba(238,248,245,.9), rgba(244,243,250,.86)); }
     .section-head { display: flex; justify-content: space-between; align-items: end; gap: 28px; margin-bottom: 46px; }
     .kicker { color: var(--acid); font: 800 12px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .14em; text-transform: uppercase; }
     h2 { margin: 10px 0 0; font-size: clamp(38px, 6vw, 70px); line-height: .98; letter-spacing: -.055em; }
