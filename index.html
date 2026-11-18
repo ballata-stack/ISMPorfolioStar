@@ -672,11 +672,11 @@
     .literacy-card .conceptual-inquiry { margin: 23px 0 0; padding-top: 19px; border-top: 1px solid rgba(35,76,66,.12); color: #355c53; font-size: 14px; line-height: 1.62; }
     .conceptual-inquiry strong { color: var(--ink); }
 
-    .learning-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .learning-card { min-height: 225px; padding: 26px; }
+    .learning-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
+    .learning-card { min-height: 0; padding: 28px; }
     .learning-card span { color: var(--acid); font: 850 11px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .12em; }
-    .learning-card h3 { margin: 34px 0 10px; font-size: 23px; line-height: 1.12; letter-spacing: -.035em; }
-    .learning-card p { margin: 0; color: var(--muted); font-size: 14px; }
+    .learning-card h3 { margin: 30px 0 13px; font-size: 24px; line-height: 1.12; letter-spacing: -.035em; }
+    .learning-card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.68; }
 
     #professional { padding-block: clamp(82px, 7vw, 110px); }
     #professional .section-head { margin-bottom: 30px; }
@@ -848,11 +848,6 @@
           <p><strong>Learning begins with people.</strong> Students investigate needs, define meaningful problems, develop ideas, build prototypes, test with users, and reflect on how their thinking evolves.</p>
         </div>
         <div class="outcome-grid">
-          <article class="panel outcome-lead reveal">
-            <div class="kicker">A visible learning cycle</div>
-            <h2>Understand. Create. Improve.</h2>
-            <p>Students learn to make informed design decisions by connecting user needs, conceptual understanding, materials, and technology.</p>
-          </article>
           <article class="panel artifact-feature reveal">
             <div class="artifact-header">
               <div class="kicker">Featured Learning Artifact</div>
@@ -1217,16 +1212,39 @@
     <section id="learning">
       <div class="wrap">
         <div class="section-head reveal">
-          <div><div class="kicker">Learning Framework</div><h2>Learning in MS</h2></div>
-          <p><strong>Standards, access, feedback, and reflection.</strong> A clear framework keeps ambitious projects purposeful, inclusive, and assessable.</p>
+          <div><div class="kicker">Learning Framework</div><h2>LEARNING IN MIDDLE SCHOOL</h2></div>
         </div>
         <div class="learning-grid">
-          <article class="panel learning-card reveal"><span>01 / STANDARDS</span><h3>Learning Standards-Based Units</h3><p>CSTA and ISTE standards make learning goals and progression visible.</p></article>
-          <article class="panel learning-card reveal"><span>02 / DESIGN & ACCESS</span><h3>MYP Design, UDL & MTSS</h3><p>Structured design learning with multiple entry points and support for diverse learners.</p></article>
-          <article class="panel learning-card reveal"><span>03 / AUTHENTIC DESIGN</span><h3>Human-Centred Design Thinking & Intergenerational Learning</h3><p>Grade 4 clients help Grade 5 and 6 designers create and test products for a real audience.</p></article>
-          <article class="panel learning-card reveal"><span>04 / ASSESSMENT</span><h3>Performance Task Assessment</h3><p>Students demonstrate knowledge through purposeful products and decisions.</p></article>
-          <article class="panel learning-card reveal"><span>05 / FEEDBACK</span><h3>Padlet Collaboration & Feedback</h3><p>Self and peer feedback make improvement visible throughout the process.</p></article>
-          <article class="panel learning-card reveal"><span>06 / REFLECTION</span><h3>Portfolio Reflection</h3><p>Students document evidence, explain changes, and identify their next steps.</p></article>
+          <article class="panel learning-card reveal">
+            <span>01</span>
+            <h3>Learning Standards-Based Units</h3>
+            <p>I developed Grades 6–8 learning experiences informed by ISTE and CSTA standards, making connections between digital literacy, computational thinking, design, engineering, and responsible technology use. Learning progresses from exploring concepts and developing technical skills to designing, creating, testing, refining, and reflecting.</p>
+          </article>
+          <article class="panel learning-card reveal">
+            <span>02</span>
+            <h3>Design Cycle, UDL &amp; MTSS</h3>
+            <p>I structured Design Technology learning around the MYP Design Cycle, connecting inquiry, idea development, solution creation, and evaluation. Guided tutorials, design planners, mini-challenges, visual examples, and regular check-ins provide students with structured support as they develop confidence and work toward greater independence.</p>
+          </article>
+          <article class="panel learning-card reveal">
+            <span>03</span>
+            <h3>Human-Centred Design Thinking &amp; Cross-Grade Collaboration</h3>
+            <p>I created opportunities for Middle School students to work with Grade 3, 4, and 5 students as authentic clients across 3D design and printing, game design, and physical controller circuit projects. Middle School students interviewed clients, identified their needs, planned solutions, developed prototypes, gathered feedback, and refined their designs for younger users.</p>
+          </article>
+          <article class="panel learning-card reveal">
+            <span>04</span>
+            <h3>Performance Task Assessment &amp; Rubric</h3>
+            <p>Students demonstrate learning through purposeful design challenges and projects, including interactive games, 3D-designed products, and robotics builds. I developed task-specific rubrics aligned with learning objectives and design criteria, making expectations for technical skills, planning, creativity, problem-solving, and communication clear to students. Rubrics support formative feedback, self-assessment, and reflection, helping students evaluate their work, justify design decisions, and identify areas for improvement throughout the design process.</p>
+          </article>
+          <article class="panel learning-card reveal">
+            <span>05</span>
+            <h3>Padlet Collaboration &amp; Feedback</h3>
+            <p>I integrated Padlet as a platform for students to share work-in-progress, participate in peer feedback, and document design development. In the Grade 7 animated story game project, students shared initial game prototypes, gathered feedback, and refined their designs, including improvements to usability and player experience.</p>
+          </article>
+          <article class="panel learning-card reveal">
+            <span>06</span>
+            <h3>Portfolio Reflection</h3>
+            <p>Students use digital portfolios to document their design process, showcase completed work, and reflect on their learning. Through project documentation and reflection, they identify improvements, explain design decisions, and consider their next steps as learners and designers.</p>
+          </article>
         </div>
       </div>
     </section>
