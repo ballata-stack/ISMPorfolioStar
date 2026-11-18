@@ -589,6 +589,42 @@
     .supporting-details p { margin: 7px 0; color: var(--muted); font-size: 14px; }
     .supporting-details b { color: var(--ink); }
 
+    .design-artifact {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      margin-top: 54px;
+      padding: clamp(30px, 5vw, 62px);
+      border-radius: 34px;
+      color: #fff;
+      background: linear-gradient(135deg, #123b31 0%, #245f50 60%, #357565 100%);
+      box-shadow: 0 34px 90px rgba(21,57,48,.2);
+    }
+    .design-artifact::before { content: ""; position: absolute; inset: 0; z-index: -2; background-image: linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px); background-size: 44px 44px; mask-image: linear-gradient(120deg, transparent 10%, #000 78%); }
+    .design-artifact::after { content: "INCLUSIVE"; position: absolute; right: -22px; bottom: -28px; z-index: -1; color: rgba(255,255,255,.055); font-size: clamp(88px, 15vw, 196px); font-weight: 900; line-height: .78; letter-spacing: -.08em; }
+    .design-artifact .kicker { color: #c8e4dc; }
+    .design-artifact-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 28px; align-items: end; }
+    .design-artifact-head h3 { max-width: 820px; margin: 8px 0 0; font-size: clamp(40px, 6vw, 74px); line-height: .96; letter-spacing: -.055em; }
+    .design-artifact-meta { max-width: 340px; margin: 0; color: rgba(255,255,255,.82); font: 760 12px/1.7 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .06em; text-align: right; text-transform: uppercase; }
+    .design-artifact-overview { display: grid; grid-template-columns: 1.05fr .95fr; gap: 16px; margin-top: 38px; }
+    .design-artifact-block { padding: 26px; border: 1px solid rgba(255,255,255,.13); border-radius: 20px; background: rgba(255,255,255,.075); backdrop-filter: blur(12px); }
+    .design-artifact-label { display: block; margin-bottom: 12px; color: #c8e4dc; font: 840 11px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .13em; text-transform: uppercase; }
+    .design-artifact-block p { margin: 0; color: rgba(255,255,255,.86); font-size: 15px; line-height: 1.72; }
+    .design-inquiry { color: var(--ink); background: linear-gradient(145deg, #f4ead3, #e9d5ac); border-color: rgba(255,255,255,.45); }
+    .design-inquiry .design-artifact-label { color: #5c6d58; }
+    .design-inquiry blockquote { margin: 0 0 18px; font-size: clamp(23px, 3vw, 34px); font-weight: 790; line-height: 1.13; letter-spacing: -.035em; }
+    .design-inquiry p { color: #5b6459; font-size: 13px; line-height: 1.55; }
+    .design-journey-heading { margin: 58px 0 22px; }
+    .design-journey-heading h3 { margin: 7px 0 0; font-size: clamp(34px, 5vw, 56px); letter-spacing: -.05em; }
+    .design-journey-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+    .design-journey-card { min-height: 100%; padding: 24px 21px; border: 1px solid rgba(35,76,66,.1); border-radius: 18px; background: rgba(255,255,255,.68); box-shadow: 0 16px 42px rgba(33,70,60,.07); }
+    .design-journey-card h4 { margin: 0 0 14px; color: var(--ink); font-size: 20px; line-height: 1.08; letter-spacing: -.03em; }
+    .design-journey-card h4 span { display: block; margin-bottom: 12px; color: var(--acid); font: 860 12px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .12em; }
+    .design-journey-card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.63; }
+    .educator-role { display: grid; grid-template-columns: minmax(190px, .34fr) 1fr; gap: 28px; align-items: center; margin-top: 18px; padding: 27px 30px; border: 1px solid rgba(35,76,66,.1); border-radius: 20px; background: linear-gradient(135deg, rgba(216,235,228,.72), rgba(244,235,214,.72)); }
+    .educator-role h3 { margin: 0; font-size: clamp(26px, 3.2vw, 40px); line-height: 1; letter-spacing: -.045em; }
+    .educator-role p { margin: 0; color: #355c53; line-height: 1.7; }
+
     .gallery-intro { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin: 54px 0 24px; }
     .gallery-intro h3 { margin: 7px 0 0; font-size: clamp(29px, 4vw, 46px); letter-spacing: -.045em; }
     .gallery-intro p { max-width: 430px; margin: 0; color: var(--muted); }
@@ -597,7 +633,7 @@
     .design-slide.active { opacity: 1; pointer-events: auto; transform: scale(1); }
     .design-slide::before { content: ""; position: absolute; inset: -32px; z-index: 0; background: var(--slide-image) center / cover no-repeat; filter: blur(24px) brightness(.54) saturate(.92); transform: scale(1.08); }
     .design-slide::after { content: ""; position: absolute; inset: 0; z-index: 2; background: linear-gradient(180deg, rgba(0,0,0,.06) 34%, rgba(0,0,0,.8) 100%); }
-    .design-slide img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .design-slide img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: contain; object-position: center; padding: 22px; filter: drop-shadow(0 18px 38px rgba(0,0,0,.28)); }
     .design-caption { position: absolute; left: clamp(26px, 5vw, 64px); right: clamp(26px, 16vw, 190px); bottom: clamp(34px, 6vw, 66px); z-index: 3; color: #fff; text-shadow: 0 3px 22px rgba(0,0,0,.34); }
     .design-caption p { max-width: 820px; margin: 0; font-size: clamp(30px, 4.4vw, 58px); font-weight: 530; line-height: 1.02; letter-spacing: -.045em; }
     .design-caption strong { font-weight: 830; }
@@ -664,6 +700,10 @@
       .outcome-grid, .domain-layout { grid-template-columns: 1fr; }
       .professional-board, .learning-grid { grid-template-columns: 1fr; }
       .artifact-story { grid-template-columns: 1fr; }
+      .design-artifact-head, .design-artifact-overview { grid-template-columns: 1fr; }
+      .design-artifact-meta { max-width: none; text-align: left; }
+      .design-journey-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .educator-role { grid-template-columns: 1fr; }
       .resume-feature { align-items: flex-start; flex-direction: column; }
       .resume-actions { justify-content: flex-start; }
       .experience-grid { grid-template-columns: 1fr; }
@@ -686,6 +726,9 @@
       .outcome-cards, .literacy-grid { grid-template-columns: 1fr; }
       .outcome-lead, .domain-intro, .output-panel { padding: 29px; }
       .artifact-feature { padding: 27px; }
+      .design-artifact { padding: 28px; border-radius: 25px; }
+      .design-journey-grid { grid-template-columns: 1fr; }
+      .design-journey-card { padding: 23px; }
       .artifact-gallery-stage { height: 520px; border-radius: 19px; }
       .artifact-gallery-stage > img { padding: 16px; }
       .artifact-gallery-caption { left: 20px; right: 20px; bottom: 20px; }
@@ -701,6 +744,7 @@
       .resume-actions .button { width: 100%; justify-content: center; }
       .gallery-intro { align-items: start; flex-direction: column; }
       .design-stage { min-height: 535px; aspect-ratio: 4 / 5; border-radius: 25px; }
+      .design-slide img { padding: 12px; }
       .timeline { padding-inline: 24px; }
       .speaking { padding: 26px; }
       .speaking-head { align-items: start; flex-direction: column; }
@@ -874,52 +918,104 @@
           </article>
         </div>
 
-        <div class="gallery-intro reveal">
-          <div><div class="kicker">Design in action</div><h3>Making ideas tangible.</h3></div>
-          <p>Follow the learning journey from client research and CAD to prototyping, feedback, testing, and sharing.</p>
+        <article class="design-artifact reveal">
+          <div class="design-artifact-head">
+            <div>
+              <div class="kicker">Design Tech Artifact</div>
+              <h3>Designing an Inclusive Amusement Park</h3>
+            </div>
+            <p class="design-artifact-meta">3.5-Week Design Technology Unit | 3D Design | CAD | 3D Printing</p>
+          </div>
+          <div class="design-artifact-overview">
+            <section class="design-artifact-block">
+              <span class="design-artifact-label">Project Overview</span>
+              <p>Students developed technical drawing and CAD skills before applying them to an authentic design challenge: creating an inclusive amusement park ride. Through individual design work and collaborative fabrication, students explored how design can consider different user needs and create accessible experiences for everyone.</p>
+            </section>
+            <section class="design-artifact-block design-inquiry">
+              <span class="design-artifact-label">Conceptual Inquiry</span>
+              <blockquote>How can design transform a shared experience into an inclusive experience for everyone?</blockquote>
+              <p><em>Key Concepts: Form, Function, Perspective | Related Concepts: Accessibility, Inclusion, User Experience</em></p>
+            </section>
+          </div>
+        </article>
+
+        <div class="design-journey-heading reveal">
+          <div class="kicker">The Design Journey</div>
+          <h3>The Design Journey</h3>
         </div>
-        <div class="design-stage reveal" id="designStage" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Design Technology process slideshow">
+        <div class="design-journey-grid">
+          <article class="design-journey-card reveal">
+            <h4><span>01.</span> Explore &amp; Learn</h4>
+            <p>Students explored perspective, orthographic, and isometric drawings to understand how 2D representations translate into 3D forms. They developed CAD skills through guided tutorials and mini design challenges.</p>
+          </article>
+          <article class="design-journey-card reveal">
+            <h4><span>02.</span> Plan &amp; Design</h4>
+            <p>Students individually designed amusement park rides, using design planners to organize ideas, consider form and function, and develop initial CAD models.</p>
+          </article>
+          <article class="design-journey-card reveal">
+            <h4><span>03.</span> Research &amp; Rethink</h4>
+            <p>Through an inquiry into accessibility and belonging, students explored barriers children with disabilities may experience. They researched user needs and refined their designs to make rides more inclusive.</p>
+          </article>
+          <article class="design-journey-card reveal">
+            <h4><span>04.</span> Fabricate &amp; Collaborate</h4>
+            <p>Students translated their CAD designs into 3D-printed models, contributing individual rides to create one collaborative class amusement park.</p>
+          </article>
+          <article class="design-journey-card reveal">
+            <h4><span>05.</span> Evaluate &amp; Reflect</h4>
+            <p>Students evaluated their design decisions, considered how accessibility influenced their solutions, and reflected on the relationship between design, functionality, and user experience.</p>
+          </article>
+        </div>
+
+        <div class="gallery-intro reveal">
+          <div><div class="kicker">Photo Slideshow</div><h3>Designing an Inclusive Amusement Park</h3></div>
+          <p>3.5-Week Design Technology Unit | 3D Design | CAD | 3D Printing</p>
+        </div>
+        <div class="design-stage reveal" id="designStage" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Designing an Inclusive Amusement Park photo slideshow">
           <figure class="design-slide active" style="--slide-image: url('assets/design-tech/design-01.webp')" aria-hidden="false">
-            <img src="assets/design-tech/design-01.webp" alt="Middle school students interviewing a Grade 4 client">
-            <figcaption class="design-caption"><p><strong>Listen.</strong> Learn from the client before designing.</p></figcaption>
+            <img src="assets/design-tech/design-01.webp" alt="Student orthographic drawing practice for amusement park ride forms">
+            <figcaption class="design-caption"><p><strong>01. Explore &amp; Learn</strong></p></figcaption>
           </figure>
           <figure class="design-slide" style="--slide-image: url('assets/design-tech/design-02.webp')" aria-hidden="true">
-            <img src="assets/design-tech/design-02.webp" alt="Students organizing ideas during the design process" loading="lazy">
-            <figcaption class="design-caption"><p><strong>Define.</strong> Turn research into a clear design direction.</p></figcaption>
+            <img src="assets/design-tech/design-02.webp" alt="Orthographic and perspective sketches of an amusement park ride" loading="lazy">
+            <figcaption class="design-caption"><p><strong>01. Explore &amp; Learn</strong></p></figcaption>
           </figure>
           <figure class="design-slide" style="--slide-image: url('assets/design-tech/design-03.webp')" aria-hidden="true">
-            <img src="assets/design-tech/design-03.webp" alt="Student developing a product model in CAD" loading="lazy">
-            <figcaption class="design-caption"><p><strong>Model.</strong> Develop ideas through sketches and CAD.</p></figcaption>
+            <img src="assets/design-tech/design-03.webp" alt="Student developing an amusement park ride design plan" loading="lazy">
+            <figcaption class="design-caption"><p><strong>02. Plan &amp; Design</strong></p></figcaption>
           </figure>
           <figure class="design-slide" style="--slide-image: url('assets/design-tech/design-04.webp')" aria-hidden="true">
-            <img src="assets/design-tech/design-04.webp" alt="Students refining a digital CAD model beside their sketches" loading="lazy">
-            <figcaption class="design-caption"><p><strong>Refine.</strong> Compare digital models with design sketches.</p></figcaption>
+            <img src="assets/design-tech/design-04.webp" alt="Student sketch showing amusement park ride form and dimensions" loading="lazy">
+            <figcaption class="design-caption"><p><strong>02. Plan &amp; Design</strong></p></figcaption>
           </figure>
           <figure class="design-slide" style="--slide-image: url('assets/design-tech/design-05.webp')" aria-hidden="true">
-            <img src="assets/design-tech/design-05.webp" alt="Students reviewing feedback on a digital design project" loading="lazy">
-            <figcaption class="design-caption"><p><strong>Feedback.</strong> Use peer and user responses to improve.</p></figcaption>
+            <img src="assets/design-tech/design-05.webp" alt="Detailed funnel water slide sketches paired with a CAD design" loading="lazy">
+            <figcaption class="design-caption"><p><strong>02. Plan &amp; Design</strong></p></figcaption>
           </figure>
           <figure class="design-slide" style="--slide-image: url('assets/design-tech/design-06.webp')" aria-hidden="true">
-            <img src="assets/design-tech/design-06.webp" alt="Students examining the internal components of a Chromebook" loading="lazy">
-            <figcaption class="design-caption"><p><strong>Investigate.</strong> Understand how components and systems work.</p></figcaption>
+            <img src="assets/design-tech/design-06.webp" alt="CAD model of a funnel water slide" loading="lazy">
+            <figcaption class="design-caption"><p><strong>02. Plan &amp; Design</strong></p></figcaption>
           </figure>
           <figure class="design-slide" style="--slide-image: url('assets/design-tech/design-07.webp')" aria-hidden="true">
-            <img src="assets/design-tech/design-07.webp" alt="Student testing a handmade Makey Makey game controller" loading="lazy">
-            <figcaption class="design-caption"><p><strong>Prototype.</strong> Build a physical controller for a playable game.</p></figcaption>
+            <img src="assets/design-tech/design-07.webp" alt="Student creating an amusement park ride in CAD" loading="lazy">
+            <figcaption class="design-caption"><p><strong>04. Fabricate &amp; Collaborate</strong></p></figcaption>
           </figure>
           <figure class="design-slide" style="--slide-image: url('assets/design-tech/design-08.webp')" aria-hidden="true">
-            <img src="assets/design-tech/design-08.webp" alt="Makey Makey circuitry connected to a student-designed game" loading="lazy">
-            <figcaption class="design-caption"><p><strong>Integrate.</strong> Connect circuitry, code, and a designed enclosure.</p></figcaption>
+            <img src="assets/design-tech/design-08.webp" alt="Student refining a colorful ride model in CAD" loading="lazy">
+            <figcaption class="design-caption"><p><strong>04. Fabricate &amp; Collaborate</strong></p></figcaption>
           </figure>
           <figure class="design-slide" style="--slide-image: url('assets/design-tech/design-09.webp')" aria-hidden="true">
-            <img src="assets/design-tech/design-09.webp" alt="Students testing an interactive Makey Makey invention" loading="lazy">
-            <figcaption class="design-caption"><p><strong>Test.</strong> Observe users and improve the experience.</p></figcaption>
+            <img src="assets/design-tech/design-09.webp" alt="Student developing a ride model using CAD tools" loading="lazy">
+            <figcaption class="design-caption"><p><strong>04. Fabricate &amp; Collaborate</strong></p></figcaption>
           </figure>
           <figure class="design-slide" style="--slide-image: url('assets/design-tech/design-10.webp')" aria-hidden="true">
-            <img src="assets/design-tech/design-10.webp" alt="Students presenting and testing projects during Grade 7 Game Day" loading="lazy">
-            <figcaption class="design-caption"><p><strong>Share.</strong> Present the outcome to an authentic audience.</p></figcaption>
+            <img src="assets/design-tech/design-10.webp" alt="Student work shared for feedback" loading="lazy">
+            <figcaption class="design-caption"><p><strong>03. Research &amp; Rethink</strong></p></figcaption>
           </figure>
-          <div class="teaching-counter" id="designCounter">01 / 10</div>
+          <figure class="design-slide" style="--slide-image: url('assets/design-tech/design-11.webp')" aria-hidden="true">
+            <img src="assets/design-tech/design-11.webp" alt="Student reflection and peer feedback on the amusement park ride design" loading="lazy">
+            <figcaption class="design-caption"><p><strong>05. Evaluate &amp; Reflect</strong></p></figcaption>
+          </figure>
+          <div class="teaching-counter" id="designCounter">01 / 11</div>
           <div class="teaching-controls" aria-label="Design slideshow controls">
             <button type="button" id="designPrevious" aria-label="Previous design photo">←</button>
             <button type="button" id="designPlayPause" aria-label="Pause design slideshow">Ⅱ</button>
@@ -927,6 +1023,10 @@
           </div>
           <div class="teaching-progress" aria-hidden="true"><span id="designProgress"></span></div>
         </div>
+        <article class="educator-role reveal">
+          <h3>My Role as Educator</h3>
+          <p>Designed and facilitated the unit, scaffolded technical drawing and CAD instruction, developed design planners and mini challenges, guided accessibility research, and supported iterative design, 3D modelling, and fabrication.</p>
+        </article>
       </div>
     </section>
 
