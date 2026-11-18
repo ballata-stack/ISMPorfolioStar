@@ -658,11 +658,19 @@
     .path-step h3 { margin: 42px 0 8px; font-size: 25px; letter-spacing: -.035em; }
     .path-step p { margin: 0; color: var(--muted); font-size: 14px; }
 
-    .literacy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-    .literacy-card { min-height: 250px; padding: 30px; position: relative; overflow: hidden; }
+    .digital-overview { display: grid; grid-template-columns: minmax(210px, .38fr) 1fr; gap: 34px; align-items: start; margin-bottom: 20px; padding: clamp(30px, 4.5vw, 50px); background: linear-gradient(135deg, rgba(216,235,228,.8), rgba(244,235,214,.72)); }
+    .digital-overview .kicker { margin-top: 4px; font-size: 12px; }
+    .digital-overview-copy { display: grid; gap: 18px; }
+    .digital-overview-copy p { margin: 0; color: #355c53; font-size: 16px; line-height: 1.75; }
+    .literacy-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .literacy-card { min-height: 0; padding: 32px; position: relative; overflow: hidden; }
     .literacy-card::after { content: attr(data-number); position: absolute; right: -4px; bottom: -45px; color: rgba(47,111,98,.055); font-size: 120px; font-weight: 900; letter-spacing: -.08em; }
-    .literacy-card h3 { margin: 34px 0 9px; font-size: 27px; letter-spacing: -.035em; }
-    .literacy-card p { margin: 0; max-width: 470px; color: var(--muted); }
+    .literacy-card > * { position: relative; z-index: 1; }
+    .literacy-card h3 { margin: 0 0 14px; font-size: 29px; line-height: 1.1; letter-spacing: -.04em; }
+    .literacy-time { margin: 0 0 20px; padding: 11px 13px; border-radius: 11px; color: #315f55; background: rgba(47,111,98,.08); font-size: 13px; line-height: 1.45; }
+    .literacy-card > p:not(.literacy-time):not(.conceptual-inquiry) { margin: 0; max-width: none; color: var(--muted); line-height: 1.72; }
+    .literacy-card .conceptual-inquiry { margin: 23px 0 0; padding-top: 19px; border-top: 1px solid rgba(35,76,66,.12); color: #355c53; font-size: 14px; line-height: 1.62; }
+    .conceptual-inquiry strong { color: var(--ink); }
 
     .learning-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .learning-card { min-height: 225px; padding: 26px; }
@@ -670,19 +678,21 @@
     .learning-card h3 { margin: 34px 0 10px; font-size: 23px; line-height: 1.12; letter-spacing: -.035em; }
     .learning-card p { margin: 0; color: var(--muted); font-size: 14px; }
 
-    .professional-board { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; align-items: start; }
-    .board-column { min-height: 0; padding: 31px; position: relative; overflow: hidden; }
-    .board-column::after { content: attr(data-number); position: absolute; right: -9px; bottom: -58px; color: rgba(47,111,98,.055); font-size: 145px; font-weight: 900; letter-spacing: -.08em; }
-    .board-column h3 { margin: 8px 0 24px; font-size: 28px; line-height: 1.08; letter-spacing: -.04em; }
-    .board-column ul { margin: 0; padding-left: 18px; color: var(--muted); }
-    .board-column li { margin: 12px 0; padding-left: 4px; }
+    #professional { padding-block: clamp(82px, 7vw, 110px); }
+    #professional .section-head { margin-bottom: 30px; }
+    .professional-board { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; align-items: stretch; }
+    .board-column { min-height: 0; padding: 23px 21px; position: relative; overflow: hidden; font-size: 13px; line-height: 1.42; }
+    .board-column::after { content: attr(data-number); position: absolute; right: -6px; bottom: -42px; color: rgba(47,111,98,.05); font-size: 112px; font-weight: 900; letter-spacing: -.08em; }
+    .board-column h3 { margin: 7px 0 17px; font-size: clamp(20px, 1.75vw, 24px); line-height: 1.08; letter-spacing: -.04em; }
+    .board-column ul { margin: 0; padding-left: 16px; color: var(--muted); }
+    .board-column li { margin: 7px 0; padding-left: 2px; }
     .board-column li::marker { color: var(--acid); }
     .board-column li strong { color: var(--ink); }
     .board-column li em { color: #547269; }
-    .board-column ul ul { margin-top: 9px; padding-left: 20px; }
-    .board-column ul ul li { margin: 8px 0; }
-    .board-column ul ul ul { margin-top: 6px; }
-    .board-column ul ul ul li { margin: 6px 0; }
+    .board-column ul ul { margin-top: 6px; padding-left: 16px; font-size: 12.5px; }
+    .board-column ul ul li { margin: 5px 0; }
+    .board-column ul ul ul { margin-top: 4px; padding-left: 15px; }
+    .board-column ul ul ul li { margin: 4px 0; }
 
     .resume-feature { display: flex; align-items: center; justify-content: space-between; gap: 34px; margin-top: 22px; padding: 34px 38px; }
     .resume-feature h3 { margin: 7px 0 5px; font-size: clamp(28px, 4vw, 42px); line-height: 1; letter-spacing: -.04em; }
@@ -710,6 +720,7 @@
       .brand-text { display: none; }
       .nav-links { gap: 14px; font-size: 13px; }
       .nav-cta { padding-inline: 12px; }
+      .professional-board { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
     }
     @media (max-width: 850px) {
       .nav-links { display: none; position: absolute; top: 74px; left: 0; right: 0; padding: 22px; flex-direction: column; align-items: stretch; gap: 8px; border: 1px solid rgba(35,76,66,.1); border-radius: 18px; background: rgba(255,255,255,.97); box-shadow: var(--shadow); }
@@ -725,6 +736,7 @@
       .design-journey-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .educator-role { grid-template-columns: 1fr; }
       .robotics-concept-grid { grid-template-columns: 1fr; }
+      .digital-overview { grid-template-columns: 1fr; gap: 18px; }
       .resume-feature { align-items: flex-start; flex-direction: column; }
       .resume-actions { justify-content: flex-start; }
       .experience-grid { grid-template-columns: 1fr; }
@@ -1164,14 +1176,40 @@
     <section id="digital-literacy">
       <div class="wrap">
         <div class="section-head reveal">
-          <div><div class="kicker">03 / Learning Area</div><h2>Digital Literacy</h2></div>
-          <p><strong>Use digital systems with purpose and care.</strong> Students organize, communicate, question, create, and protect.</p>
+          <div><div class="kicker">03 / Learning Area</div><h2>DIGITAL LITERACY</h2></div>
         </div>
+        <article class="panel digital-overview reveal">
+          <div class="kicker">Overview: I believe statement</div>
+          <div class="digital-overview-copy">
+            <p>I see Digital Literacy as more than teaching students how to use technology; it is about helping them develop the confidence, judgment, and healthy habits to navigate an increasingly digital world. Through meaningful learning experiences that encourage student agency, independence, and responsible decision-making, I also aim to build a relationship where students feel safe approaching me as a trusted adult. Someone they can turn to with questions, concerns, and curiosity throughout their Middle School technology journey.</p>
+            <p>These four areas represent some of the key learning priorities I focused on with Grade 6 students during the first semester of my first year of teaching at CMIS, laying the foundation for their continued growth as confident and responsible digital learners.</p>
+          </div>
+        </article>
         <div class="literacy-grid">
-          <article class="panel literacy-card reveal" data-number="01"><div class="kicker">Responsible participation</div><h3>Citizenship & Online Safety</h3><p>Students make informed choices, communicate responsibly, and understand their digital footprint.</p></article>
-          <article class="panel literacy-card reveal" data-number="02"><div class="kicker">Learning management</div><h3>Google Apps for Executive Function</h3><p>Students use digital tools to organize tasks, plan work, collaborate, and follow through.</p></article>
-          <article class="panel literacy-card reveal" data-number="03"><div class="kicker">Critical understanding</div><h3>AI Literacy & Machine Learning</h3><p>Students examine how systems work, question outputs, and use AI thoughtfully.</p></article>
-          <article class="panel literacy-card reveal" data-number="04"><div class="kicker">Secure practice</div><h3>Cybersecurity & Online Safety</h3><p>Students protect information, recognize risk, and build safer digital habits.</p></article>
+          <article class="panel literacy-card reveal" data-number="01">
+            <h3>1. Citizenship &amp; Online Safety</h3>
+            <p class="literacy-time"><strong>Learning Time:</strong> 2 weeks | 2 classes per week | 4 class blocks</p>
+            <p>Students explored responsible digital behaviour using the THINK strategy and co-created classroom agreements outlining expectations for computer use, online communication, and digital conduct. Through discussions and reflection, they developed ownership of their digital choices.</p>
+            <p class="conceptual-inquiry"><strong>Conceptual Inquiry:</strong> How do our choices and actions shape our digital footprint and online relationships?</p>
+          </article>
+          <article class="panel literacy-card reveal" data-number="02">
+            <h3>2. Google Apps for Executive Function</h3>
+            <p class="literacy-time"><strong>Learning Time:</strong> 3 weeks | 2 class blocks per week</p>
+            <p>Grade 6 students developed essential Google Workspace skills to support a successful transition into Middle School. Through guided tutorials, independent tasks, and collaborative challenges, they used Calendar, Keep, Gmail, and Google Sites to organize work, manage schedules, communicate, and document learning.</p>
+            <p class="conceptual-inquiry"><strong>Conceptual Inquiry:</strong> How can digital tools help us become more independent, organized, and responsible learners?</p>
+          </article>
+          <article class="panel literacy-card reveal" data-number="03">
+            <h3>3. AI Literacy &amp; Machine Learning</h3>
+            <p class="literacy-time"><strong>Learning Time:</strong> 2 weeks | 2 class blocks per week, plus a 5-minute daily AI activity over 2 months</p>
+            <p>Students explored how AI systems use data to recognize patterns and generate outputs. They examined bias, perspective, open-source information, and proper attribution, while investigating how AI can help address environmental challenges such as flooding, deforestation, and forest fires. Daily AI awareness activities helped them identify AI-generated images and videos using critical observation and verification strategies.</p>
+            <p class="conceptual-inquiry"><strong>Conceptual Inquiry:</strong> How do data, perspective, and human choices influence what artificial intelligence creates and how it impacts the world?</p>
+          </article>
+          <article class="panel literacy-card reveal" data-number="04">
+            <h3>4. Cybersecurity &amp; Online Safety</h3>
+            <p class="literacy-time"><strong>Learning Time:</strong> 2 weeks | 2 class blocks per week</p>
+            <p>Middle School students investigated common online threats, including phishing, malware, and identity theft, learning how to recognize warning signs and protect personal information. They applied their learning by creating digital safety awareness posters to share practical online protection strategies with their families.</p>
+            <p class="conceptual-inquiry"><strong>Conceptual Inquiry:</strong> How can understanding online threats help us make safer decisions and protect ourselves and others in a connected world?</p>
+          </article>
         </div>
       </div>
     </section>
